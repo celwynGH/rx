@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Electronic Prescription</title>
+
+<style>
+body {
+    font-family: "Century Gothic", sans-serif;
+    background: #f2f4f7;
+    padding: 20px;
+}
+
+.prescription {
+    width: 794px;
+    min-height: 1123px;
+    background: white;
+    padding: 40px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+/* CENTERED HEADER */
+.header {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    display: block;
+   margin-right: 20px;
+}
+
+.clinic-info h2 {
+    margin: 0;
+}
+
+.clinic-info p {
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+/* FORM STYLING */
+input, textarea, select {
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    width: 100%;
+    outline: none;
+}
+
+.patient-info {
+    margin-top: 25px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.row div {
+    flex: 1;
+}
+
+.rx-symbol {
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+/* BIGGER RX AREA */
+.medicine-box {
+    margin-top: 40px;
+}
+
+textarea {
+    min-height: 500px;   /* Increased size */
+    resize: none;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* SIGNATURE */
+.signature {
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+    text-align: center;
+}
+
+.footer {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    font-size: 12px;
+}
+
+/* PRINT */
+.print-btn {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background: #0077b6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #023e8a;
+}
+
+@media print {
+    body { background: none; }
+    .print-btn { display: none; }
+    .prescription { box-shadow: none; }
+}
+  
+label {
+    font-weight: bold;
+    font-size: 16px; /* optional */
+}  
+</style>
+</head>
+
+<body>
+
+<div class="prescription">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="logo.png" class="logo" alt="Logo sa imo clinic">
+        <div class="clinic-info">
+            <h2 contenteditable="true">Vincent Steven S.Arpe, MD</h2>
+            <p>License No: <span contenteditable="true">1234567</span></p>
+            <p contenteditable="true">ngalan sa Clinic</p>
+            <p contenteditable="true">imo address</p>
+        </div>
+    </div>
+
+    <!-- PATIENT INFO -->
+    <div class="patient-info">
+        <div class="row">
+            <div>
+                <label>Patient Name:</label>
+                <input type="text">
+            </div>
+            <div>
+                <label>Date:</label>
+                <input type="date" id="date">
+            </div>
+        </div>
+
+        <div class="row">
+            <div>
+                <label>Age:</label>
+                <input type="text">
+            </div>
+            <div>
+                <label>Sex:</label>
+<select required>
+    <option value="" disabled selected>Select Sex</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+</select>
+            </div>
+        </div>
+    </div>
+
+    <!-- RX -->
+    <div class="rx-symbol">℞</div>
+
+    <div class="medicine-box">
+        <textarea placeholder="Write full prescription here...
+Example:
+1. Amoxicillin 500mg
+   Take 1 capsule every 8 hours for 7 days.
+
+2. Paracetamol 500mg
+   Take 1 tablet every 6 hours as needed for pain.
+"></textarea>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature">
+        <p>___________________________</p>
+        <p contenteditable="true">Vincent Steven S.Arpe, MD</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>This prescription is electronically generated.</p>
+    </div>
+
+</div>
+
+<div class="print-btn">
+    <button onclick="window.print()">Print Prescription</button>
+</div>
+
+<script>
+document.getElementById("date").valueAsDate = new Date();
+</script>
+
+</body>
+</html>
