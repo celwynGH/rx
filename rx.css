@@ -1,0 +1,146 @@
+body {
+    font-family: "Century Gothic", sans-serif;
+    background: #f2f4f7;
+    padding: 20px;
+}
+
+.prescription {
+    width: 100%;
+    max-width: 794px;   /* keeps A4 on desktop */
+    min-height: 1123px;
+    background: white;
+    padding: 40px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+/* CENTERED HEADER */
+.header {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    display: block;
+   margin-right: 20px;
+}
+
+.clinic-info h2 {
+    margin: 0;
+}
+
+.clinic-info p {
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+/* FORM STYLING */
+input, textarea, select {
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    width: 100%;
+    outline: none;
+}
+
+.patient-info {
+    margin-top: 25px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.row div {
+    flex: 1;
+}
+
+.rx-symbol {
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+/* BIGGER RX AREA */
+.medicine-box {
+    margin-top: 40px;
+}
+
+textarea {
+    min-height: 500px;   /* Increased size */
+    resize: none;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* SIGNATURE */
+.signature {
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+    text-align: center;
+}
+
+.footer {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    font-size: 12px;
+}
+
+/* PRINT */
+.print-btn {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background: #0077b6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #023e8a;
+}
+
+@media print {
+    body { background: none; }
+    .print-btn { display: none; }
+    .prescription { box-shadow: none; }
+}
+  
+label {
+    font-weight: bold;
+    font-size: 16px; /* optional */
+}
+
+@media (max-width: 768px) {
+
+    .row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .prescription {
+        padding: 20px;
+    }
+
+    .logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    textarea {
+        min-height: 250px;
+    }
+
+}
